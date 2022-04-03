@@ -19,6 +19,7 @@
     stored on the object.
 */
 
+
 class Employee {
     constructor(name, shifts){
         this.name = name;
@@ -48,7 +49,7 @@ let empOne = new Employee('Jess', 'weekday mornings & weekday afternoons')
     `empOne` object.
 */
 
-//empOne.getSchedule();
+//empOne.getSchedule()
 
 
 /*
@@ -61,9 +62,8 @@ let empOne = new Employee('Jess', 'weekday mornings & weekday afternoons')
     Hint: you can do this inline with the 
     spread operator or reassign it using 
     dot or bracket notation.
-*/
- const empTwo = {...empOne};
- empTwo.name = 'Nick';
+    */
+
 //console.log(empTwo);
 
 
@@ -95,14 +95,13 @@ let empOne = new Employee('Jess', 'weekday mornings & weekday afternoons')
 class Manager extends Employee {
     constructor(name, shifts, employees){
         super(name, shifts)
-
         this.employees = [employees]
     }
     getEmployees() {
         console.log(this.name + ' manages ' + this.employees);
     }
-    addEmployee(emp) {
-        this.employees = emp.push
+    addEmployee(emp){
+        this.employees.push(emp)
     }
 };
 
@@ -119,16 +118,14 @@ class Manager extends Employee {
     employees: Cece and Schmidt
 */
 
-const manager = new Manager('Winston', 'weekday mornings & weekday afternoons', 'Cece & Schmidt');
+const manager = new Manager('Winston', 'weekday mornings, weekday afternoons', 'Cece and Schmidt');
 
 
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
-
 manager.getEmployees();
-
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 

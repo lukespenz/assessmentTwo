@@ -21,6 +21,8 @@
     'Welcome back, Andrew'
 */
 
+
+
 const greetUser = (username) => {
     return 'Welcome back, ' + username
 };
@@ -50,7 +52,9 @@ const greetUser = (username) => {
         // `You're in our delivery zone!`
 */
 
+
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
+
 
 const canWeDeliver = (zipCode) => {
     for(i = 0; i < deliveryAreaZipCodes.length; i++){
@@ -64,7 +68,21 @@ const canWeDeliver = (zipCode) => {
     }
 };
 
-//console.log(canWeDeliver(81205));
+let canDeliver = false
+
+deliveryAreaZipCodes.forEach(zip => {
+    if(zip === canDeliver){
+        canDeliver = true 
+    }
+})
+
+if(canDeliver){
+    'can deliver'
+} else {
+    'cannot deliver'
+};
+
+console.log(canWeDeliver(81205));
 
 
 /* 
@@ -126,7 +144,12 @@ const deals = [
     to replace the 15 with a 10.
 */
 
-//deals['title'].replace('15% Off!', '10% Off!');
+deals[0].title = deals[0].title.replace('15% Off!', '10% Off!')
+
+
+
+
+console.log(deals);
 
 //console.log(deals.title);
 //??
@@ -144,7 +167,6 @@ const deals = [
     to be displaying wrong on the live site.
 */
 
-//deals[desc].replace('March!', 'April!');
-deals[descr].trim;
+deals[1].desc = deals[1].desc.replace('March', 'April').trim()
 
-console.log(deals.desc);
+console.log(deals)

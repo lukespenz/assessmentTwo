@@ -35,9 +35,14 @@ const cart = [
 
 
 
- const summedPrice = cart.reduce((acc, elem) => {acc + elem.price}, 0)
+
+
+const summedPrice = cart.reduce((acc, i) => {return acc + i.price}, 0)
+
+
+//  FORGOT THE FRIGGIN RETURN!!!
      
-// console.log(summedPrice)
+console.log(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -53,12 +58,10 @@ const cart = [
     Note: the numbers passed in for `tax` will be
     decimals, for example: .06 for a 6% tax.
 */
+const calcFinalPrice = (cartTotal, couponValue, tax) => {return cartTotal * (tax + 1) - couponValue}
 
-// const calcFinalPrice = (cartTotal, couponValue, tax) => {
-//     return cartTotal * (1 + tax) - couponValue
-// };
 
-// console.log(calcFinalPrice(10,3,.1));
+//console.log(calcFinalPrice(10,3,.1));
 
 
 
