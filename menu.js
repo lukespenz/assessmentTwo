@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -31,15 +30,13 @@
 */
 
 const pizza = {
-    name : 'cheese',
-    price : 10,
-    category : 'entree',
-    popularity : 3,
-    rating : 4,
-    tags : ['popular', 'cheese', 'boring']
-}
-
-
+  name: "cheese",
+  price: 10,
+  category: "entree",
+  popularity: 3,
+  rating: 4,
+  tags: ["popular", "cheese", "boring"],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -51,7 +48,6 @@ const pizza = {
 
 //console.log(pizza.popularity)
 
-
 /*
     Second, log the second tag in your pizza's
     tags array.
@@ -60,7 +56,6 @@ const pizza = {
 */
 
 //console.log(pizza.tags[1]);
-
 
 /*
     Third, destructure the price off of the
@@ -72,7 +67,6 @@ const pizza = {
 // const {price} = pizza
 // console.log(price);
 
-
 /*
     Fourth, and last, destructure the category
     property.
@@ -82,7 +76,6 @@ const pizza = {
 
 // const {category} = pizza;
 // console.log(category);
-
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -96,15 +89,50 @@ const pizza = {
     data in some functions that you'll write.
 */
 
-const foodArr = {
-    price : 5, 
-    category : 'desert', 
-    popularity : 1,
-    rating : 5, 
-    tags : ['popular', 'das a good pizza', 'mama mia!']}
+const foodArr = [
+  {
+    name: "cheese",
+    price: 10,
+    category: "entree",
+    popularity: 3,
+    rating: 4,
+    tags: ["popular", "cheese", "boring"],
+  },
+  {
+    name: "pepporoni",
+    price: 12,
+    category: "entree",
+    popularity: 1,
+    rating: 5,
+    tags: ["popular", "meat", "cool"],
+  },
+  {
+    name: "sausage",
+    price: 12,
+    category: "entree",
+    popularity: 2,
+    rating: 5,
+    tags: ["popular", "meat", "cool"],
+  },
+  {
+    name: "hawain",
+    price: 14,
+    category: "entree",
+    popularity: 2,
+    rating: 3,
+    tags: ["popular", "meat", "controversial"],
+  },
+  {
+    name: "deep dish",
+    price: 10,
+    category: "entree",
+    popularity: 5,
+    rating: 2,
+    tags: ["popular", "cheese", "controversial"],
+  },
+];
 
-console.log(foodArr);
-
+//console.log(foodArr);
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -118,10 +146,11 @@ console.log(foodArr);
     your food objects has.
 */
 
-const filteredFood = foodArr.filter(elem => elem.tags === 'popular');
+const filteredFoods = foodArr.filter((elem) => {
+  return elem.tags.includes("popular");
+});
 
-console.log(filteredFood);
-
+//console.log(filteredFoods)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -162,8 +191,58 @@ console.log(filteredFood);
     Return the filtered array from the entire function
 */
 
-//CODE HERE
+// const filterByProperty2 = (property, number, type) => {
+//     let arr = [];
+//     for(let i = 0; i < foodArr.length; i++){
+//         if(type === 'above'){
+//             if(foodArr[i][property] > number){
+//                 arr.push(foodArr[i])
+//             }
+//         }else if(type === 'below'){
+//             if(foodArr[i][property] < number){
+//                 arr.push(foodArr[i])
+//             }
+//         }else{
+//             return 'improper input'
+//         }
+//     }
+//     return arr
+// };
 
+const filterByProperty2 = (property, number, type) => {
+  let arr = [];
+  foodArr.forEach((elem) => {
+    if (type === "above") {
+      if (elem[property] > number) {
+        arr.push(elem);
+      }
+    } else if (type === "below") {
+      if (elem[property] < number) {
+        arr.push(elem);
+      }
+    } else {
+      return "improper input";
+    }
+  });
+  return arr;
+};
+
+console.log(filterByProperty2("price", 12, "below"));
+
+const filterByProperty = (property, number, type) => {
+  const filteredArr = foodArr.filter((pizza) => {
+    if (type === "above") {
+      return pizza[property] > number;
+    } else if ((type = "below")) {
+      return pizza[property] < number;
+    } else {
+      return "not valid type";
+    }
+  });
+  return filteredArr;
+};
+
+//console.log(filterByProperty('price', 6, 'above'))
 
 /*
     Invoke the `filterByProperty` function passing
